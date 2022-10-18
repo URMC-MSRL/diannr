@@ -1,14 +1,13 @@
 Package: diannanalysis
 Imports:
-  diann
-  dplyr
-  janitor
-  stats
-  stringr
-  tibble
-  tidyr
+  diann,
+  dplyr,
+  janitor,
+  stats,
+  stringr,
+  tibble,
+  tidyr,
   utils
-  
 Type: Package
 Title: Analyzes DIA-NN Data and Creates Several Useful Files
 Version: 0.0.1
