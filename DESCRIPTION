@@ -3,6 +3,7 @@ Imports:
   diann,
   dplyr,
   janitor,
+  magrittr,
   stats,
   stringr,
   tibble,

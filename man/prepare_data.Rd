@@ -2,7 +2,7 @@
 % Please edit documentation in R/prepare_data.R
 \name{prepare_data}
 \alias{prepare_data}
-\title{Performs 4 separate steps to prepare a DIA-NN output for data analysis. 1 Data is imported as implemented in the diann package. 2 Precursors are filtered. 3 According to protein groups, abundances are calculated using the MaxLFQ algorithm as implemented in the diann package. 4 Data is tidied.}
+\title{Import and Filter DIA-NN data and Calculate MaxLFQ}
 \usage{
 prepare_data(
   filepath = "report.tsv",
@@ -28,14 +28,4 @@ A data frame containing protein information, peptide sequence, precursor normali
 }
 \description{
 Performs 4 separate steps to prepare a DIA-NN output for data analysis. 1 Data is imported as implemented in the diann package. 2 Precursors are filtered. 3 According to protein groups, abundances are calculated using the MaxLFQ algorithm as implemented in the diann package. 4 Data is tidied.
-}
-\examples{
-prepare_data(
-    filename     = 'report.tsv',
-    contaminants = 'Keratin',
-    q            = 0.05,
-    group.q      = 0.05,
-    pep.value    = 0.25
-    )
-
 }
