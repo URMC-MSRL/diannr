@@ -2,4 +2,6 @@
 
 export(annotate_peptide)
 export(create_metadata)
+export(pep_count_fun)
+export(perform_t_test)
 export(prepare_data)

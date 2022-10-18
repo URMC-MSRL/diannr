@@ -2,8 +2,12 @@ Package: diannanalysis
 Imports:
   diann,
   dplyr,
+  ggplot2,
   janitor,
+  limma,
   magrittr,
+  purrr,
+  rlang,
   stats,
   stringr,
   tibble,
