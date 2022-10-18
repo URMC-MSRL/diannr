@@ -1,6 +1,16 @@
 Package: diannanalysis
+Imports:
+  diann
+  dplyr
+  janitor
+  stats
+  stringr
+  tibble
+  tidyr
+  utils
+  
 Type: Package
-Title:Analyzes DIA-NN Data and Creates Several Useful Files
+Title: Analyzes DIA-NN Data and Creates Several Useful Files
 Version: 0.0.1
 Author: Kyle Swovick
 Maintainer: The package maintainer <yourself@somewhere.net>
@@ -10,6 +20,7 @@ Description: This is meant for downstream analysis of DIA data searched with the
   missing values via imputation, create a series of plots meant for both 
   internal QC purposes and to  send to customers, and create a tsv containing
   protein-level information.
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.2.1
