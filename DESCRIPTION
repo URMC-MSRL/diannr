@@ -1,0 +1,15 @@
+Package: diannanalysis
+Type: Package
+Title:Analyzes DIA-NN Data and Creates Several Useful Files
+Version: 0.0.1
+Author: Kyle Swovick
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: This is meant for downstream analysis of DIA data searched with the 
+  DIA-NN algorithm, primarily in a Univeristy core facility. This package will 
+  filter the data, calculate protein abundance using the MaxLFQ algorithm, handle 
+  missing values via imputation, create a series of plots meant for both 
+  internal QC purposes and to  send to customers, and create a tsv containing
+  protein-level information.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
