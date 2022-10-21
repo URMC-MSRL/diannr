@@ -1,13 +1,3 @@
-#' Combine Metadata with Protein-level Data
-#'
-#' @description Annotates protein group-level data with metadata and counts the number of times a peptide was quantified
-#'
-#' @inheritParams annotate_peptide
-#'
-#' @return A data frame containing protein-level MaxLFQ intensities and peptide count for each protein group
-#' @export
-#'
-
 pep_count_fun <- function(df) {
    as.data.frame(
       table(
@@ -56,9 +46,20 @@ impute_normal <- function(
    return(df)
 }
 
+#' Combine Metadata with Protein-level Data
+#'
+#' @description Annotates protein group-level data with metadata, imputes
+#' missing values using a standard distribution as implemented in Perseus, and
+#' counts the number of times a peptide was quantified
+#'
+#' @inheritParams annotate_peptide
+#'
+#' @return A data frame containing protein-level MaxLFQ intensities and peptide count for each protein group
+#' @export
+#'
 annotate_protein <- function(
-      data,
-      sample_annotation
+      data = data,
+      sample_annotation = sample_annotation
 ) {
    ### Count the number of peptides quantified ---------------------------------
    pep_count <- data %>%
@@ -102,7 +103,7 @@ annotate_protein <- function(
          as.data.frame() %>%
          tibble::rownames_to_column(var = 'protein_group'),
       data %>%
-         distinct(
+         dplyr::distinct(
             sample,
             protein_group,
             gene_name,
@@ -113,7 +114,7 @@ annotate_protein <- function(
             names_from = sample,
             values_from = log2_pg_maxlfq
          ) %>%
-         select(
+         dplyr::select(
             c(gene_name,
               protein_name)
          )

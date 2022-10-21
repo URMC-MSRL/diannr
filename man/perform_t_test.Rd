@@ -4,14 +4,17 @@
 \alias{perform_t_test}
 \title{Perform Moderated T-Test}
 \usage{
-perform_t_test(pg_data)
+perform_t_test(pg_data = pg_data)
 }
 \arguments{
-\item{pg_data}{Data frame output from the annotate_protein function}
+\item{pg_data}{Data frame output from the 'annotate_protein' function}
 }
 \value{
 A data frame containing the log2 fold change between conditions for each protein group and its associated p-value.
 }
 \description{
-Calculates differential abundance and performs a moderated t-test as implemented in the protti R package (https://github.com/jpquast/protti). Calculations are performed on protein-group abundances and between all possible comparisons.
+Calculates differential abundance and performs a moderated
+t-test as implemented in the protti R package (https://cran.r-project.org/web/packages/protti/index.html).
+Calculations are performed on protein-group abundances and between all possible
+comparisons.
 }

@@ -15,17 +15,18 @@ pep_count_fun <- function(df) {
 
 #' Combine Metadata with Peptide-level Data
 #'
-#' @description Annotates peptide-level data with metadata and counts the number of times a peptide was quantified
+#' @description Annotates peptide-level data with metadata and counts the number
+#' of times a peptide was quantified
 #'
-#' @param data The data frame output from the prepare_data function
-#' @param sample_annotation The matrix output from the create_metadata function
+#' @param data The data frame output from the 'prepare_data' function
+#' @param sample_annotation The matrix output from the 'create_metadata' function
 #'
 #' @return A data frame containing peptide-level MaxLFQ intensities and peptide count for each protein group
 #' @export
 #'
 annotate_peptide <- function(
-      data,
-      sample_annotation) {
+      data = data,
+      sample_annotation = sample_annotation) {
 
    pep_data_filtered <- data %>%
       dplyr::left_join(

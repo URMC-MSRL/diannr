@@ -1,12 +1,19 @@
 #' Perform Moderated T-Test
 #'
-#' @description Calculates differential abundance and performs a moderated t-test as implemented in the protti R package (https://github.com/jpquast/protti). Calculations are performed on protein-group abundances and between all possible comparisons.
-#' @param pg_data Data frame output from the annotate_protein function
+#' @description Calculates differential abundance and performs a moderated
+#' t-test as implemented in the protti R package (https://cran.r-project.org/web/packages/protti/index.html).
+#' Calculations are performed on protein-group abundances and between all possible
+#' comparisons.
+#' @param pg_data Data frame output from the 'annotate_protein' function
 #'
 #' @return A data frame containing the log2 fold change between conditions for each protein group and its associated p-value.
 #' @export
 #'
-perform_t_test <- function(pg_data) {
+#' @importFrom rlang :=
+#'
+perform_t_test <- function(
+      pg_data = pg_data
+      ) {
    ## Assign Missing-ness ------------------------------------------------------
    message('[1/4] Assigning missing-ness ...', appendLF = F)
    ### Create all pair-wise comparisons -----------------------------------------

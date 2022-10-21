@@ -1,12 +1,15 @@
 #' Create Metadata Information
 #'
-#' @description Creates metadata information, associating treatment groups to sample names
-#' @param data The data frame output from the prepare_data function
+#' @description Creates metadata information, associating treatment groups to
+#' sample names
+#' @param data The data frame output from the 'prepare_data' function
 #'
 #' @return A matrix that has a condition name for every sample name
 #' @export
 #'
-create_metadata <- function(data) {
+create_metadata <- function(
+      data = data
+      ) {
 
    #Pull out just the sample names from data
    sample_names <- data %>%

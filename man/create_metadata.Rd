@@ -4,14 +4,15 @@
 \alias{create_metadata}
 \title{Create Metadata Information}
 \usage{
-create_metadata(data)
+create_metadata(data = data)
 }
 \arguments{
-\item{data}{The data frame output from the prepare_data function}
+\item{data}{The data frame output from the 'prepare_data' function}
 }
 \value{
 A matrix that has a condition name for every sample name
 }
 \description{
-Creates metadata information, associating treatment groups to sample names
+Creates metadata information, associating treatment groups to
+sample names
 }
