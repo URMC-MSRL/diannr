@@ -71,11 +71,9 @@ write_report <- function(
    report_data <- dplyr::full_join(
       x = dplyr::full_join(
          t_test_data %>%
-            dplyr::select(-c(
-               CI_2.5,
-               CI_97.5,
-               avg_abundance
-            )) %>%
+            dplyr::select(
+               -c(`CI_2.5`:avg_abundance)
+               ) %>%
             dplyr::relocate(
                comparison,
                .after = protein_group
