@@ -12,6 +12,7 @@ Imports:
   NatParksPalettes,
   pheatmap,
   purrr,
+  readr,
   rlang,
   seriation,
   stats,

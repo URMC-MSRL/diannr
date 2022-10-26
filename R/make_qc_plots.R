@@ -169,7 +169,7 @@ make_qc_plots <- function(
 
       charge_state_plot <- charge_state_data %>%
          ggplot2::ggplot(
-            aes(
+            ggplot2::aes(
                x    = sample,
                y    = charge_per,
                fill = charge,
@@ -241,7 +241,7 @@ make_qc_plots <- function(
             cv_combined,
             cv
          ) %>%
-         drop_na() %>%
+         tidyr::drop_na() %>%
          tidyr::pivot_longer(
             cols = starts_with('cv'),
             names_to  = 'type',

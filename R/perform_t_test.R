@@ -63,7 +63,7 @@ perform_t_test <- function(
          condition
       )
 
-   data_prep <- data %>%
+   data_prep <- pg_data %>%
       dplyr::ungroup() %>%
       dplyr::distinct(
          sample,
@@ -72,7 +72,7 @@ perform_t_test <- function(
          log2_pg_maxlfq
       ) %>%
       tidyr::complete(
-         nesting(
+         tidyr::nesting(
             sample,
             condition
          ),
@@ -370,7 +370,7 @@ perform_t_test <- function(
          comparison,
          protein_group
       ) %>%
-      mutate(
+      dplyr::mutate(
          n_obs = dplyr::n()
       ) %>%
       dplyr::ungroup() %>%
@@ -419,12 +419,12 @@ perform_t_test <- function(
             'comparison'
          )
       ) %>%
-      select(-c(
-         adj.P.Val,
-         t_statistic,
-         B,
-         missingness,
-         n_obs
+      dplyr::select(-c(
+         'adj.P.Val',
+         't_statistic',
+         'B',
+         'missingness',
+         'n_obs'
       ))
 
    return(moderated_t_test_result)

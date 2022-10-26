@@ -92,8 +92,10 @@ prepare_data <- function(
          Log2.PG.Max.LFQ = log2(PG.MaxLFQ)
       ) %>%
       dplyr::right_join(
-         y = data %>%
-            select(-c(PG.Quantity:Genes.MaxLFQ.Unique)),
+         y = data_in %>%
+            dplyr::select(
+               -c('PG.Quantity':'Genes.MaxLFQ.Unique')
+               ),
          by = c(
             'File.Name',
             'Protein.Group'

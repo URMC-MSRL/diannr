@@ -41,6 +41,7 @@ plot_theme <- ggplot2::theme_bw() +
 #' @return A PDF file written in your working directory
 #' @export
 #'
+#' @importFrom ggforce n_pages
 #' @importFrom grDevices dev.off
 #' @importFrom grDevices pdf
 #'
@@ -327,11 +328,13 @@ make_customer_plots <- function(
    if(volcano              == T) {
 
       volcano_data <- t_test_data %>%
-         dplyr::mutate(mean_cutoff = p_value_cutoff)
+         dplyr::mutate(
+            mean_cutoff = p_value_cutoff
+            )
 
       cutoff_line <- volcano_data %>%
          dplyr::mutate(
-            mean_cutoff = -log10(.data$mean_cutoff)
+            mean_cutoff = -log10(mean_cutoff)
          ) %>%
          dplyr::distinct(
             comparison,
@@ -451,11 +454,12 @@ make_customer_plots <- function(
       print(pg_intensity_plot)
    }
    if(volcano                == T) {
-      for(i in 1:n_pages(vol_plot)) {
+      for(i in 1:ggforce::n_pages(vol_plot)) {
          vol_save <- vol_plot +
-            facet_wrap_paginate(~ comparison, ncol = 1, nrow = 1, page = i)
+            ggforce::facet_wrap_paginate(~ comparison, ncol = 1, nrow = 1, page = i)
          print(vol_save)
       }
    }
+   dev.off()
 
 }

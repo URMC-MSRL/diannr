@@ -54,6 +54,8 @@ calculate_group_means <- function(df) {
 #' @return A .tsv file written in your working directory.
 #' @export
 #'
+#' @importFrom readr write_tsv
+#'
 write_report <- function(
       t_test_data = t_test_data,
       pg_data = pg_data,
@@ -69,7 +71,7 @@ write_report <- function(
    report_data <- dplyr::full_join(
       x = dplyr::full_join(
          t_test_data %>%
-            select(-c(
+            dplyr::select(-c(
                CI_2.5,
                CI_97.5,
                avg_abundance

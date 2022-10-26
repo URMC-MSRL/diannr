@@ -124,7 +124,7 @@ annotate_protein <- function(
          .after = protein_group
       ) %>%
       tidyr::pivot_longer(
-         cols = 4:(3 + dplyr::n_distinct(annotation)),
+         cols = 4:(3 + dplyr::n_distinct(sample_annotation)),
          names_to = 'sample',
          values_to = 'log2_pg_maxlfq'
       ) %>%
