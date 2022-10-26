@@ -1,4 +1,4 @@
-Package: diannanalysis
+Package: diannr
 Imports:
   dendextend,
   diann,
@@ -24,7 +24,7 @@ Type: Package
 Title: Analyzes DIA-NN Data and Creates Several Useful Files
 Version: 0.0.1
 Author: Kyle Swovick
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: The package maintainer <kyle_swovick@urmc.rochester.edut>
 Description: This is meant for downstream analysis of DIA data searched with the 
   DIA-NN algorithm, primarily in a Univeristy core facility. This package will 
   filter the data, calculate protein abundance using the MaxLFQ algorithm, handle 
