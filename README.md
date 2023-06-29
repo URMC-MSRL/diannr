@@ -18,11 +18,11 @@ This package is heavily inspired by the
 ## Installation
 
 You can install the development version of diannr from
-[GitHub](https://github.com/kswovick) with:
+[GitHub](https://github.com/urmc-msrl) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("kswovick/diannr")
+devtools::install_github("urmc-msrl/diannr")
 ```
 
 ## Import and Prepare DIA-NN Data for Analysis
