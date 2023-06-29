@@ -146,7 +146,7 @@ annotate_protein <- function(
       dplyr::left_join(
          y = pep_count,
          by = c('sample', 'protein_group'),
-         na_matched = 'na'
+         na_matches = 'na'
       )
 
    return(protein_data)
