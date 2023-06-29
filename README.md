@@ -93,7 +93,7 @@ in order to properly annotate the data you need to know the order of
 your samples. The simplest way is to do the following:
 
 ``` r
-view(dplyr::distinct(data, sample))
+View(dplyr::distinct(data, sample))
 ```
 
     #> # A tibble: 6 x 1
