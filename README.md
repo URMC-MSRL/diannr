@@ -37,13 +37,11 @@ analyses. This steps performs four separate steps including:
 
 ``` r
 library(diannr)
-data <- prepare_data(
-                     filename = 'report.tsv',
+data <- prepare_data(filename = 'report.tsv',
                      contaminants = 'Keratin',
                      q = 0.01,
                      group.q = 0.01,
-                     pep.value = 0.5
-                     )
+                     pep.value = 0.5)
 ```
 
 ### Importing Data
@@ -142,10 +140,8 @@ and create a new tibble. For example:
 ``` r
 #install.packages('tibble')
 library(tibble)
-sample_annotation <- tibble(
-   'sample' = c(1, 2, 3, 4, 5, 6),
-   'condition' = c('WT', 'WT', 'WT', 'KO', 'KO', 'KO')
-   )
+sample_annotation <- tibble('sample' = c(1, 2, 3, 4, 5, 6),
+                            'condition' = c('WT', 'WT', 'WT', 'KO', 'KO', 'KO'))
 
 sample_annotation
 #> # A tibble: 6 x 2
@@ -170,10 +166,8 @@ sample in our tidied data set. For this, we have two separate functions,
 This function attaches condition information to precursor-level data.
 
 ``` r
-pep_data <- annotate_peptide(
-   data = data,
-   sample_annotation = sample_annotation
-)
+pep_data <- annotate_peptide(data = data,
+                             sample_annotation = sample_annotation)
 ```
 
 ### `annotate_protein`
@@ -189,10 +183,8 @@ performs several tasks:
     [Perseus](https://www.nature.com/articles/nmeth.3901).
 
 ``` r
-pg_data <- annotate_protein(
-   data = data,
-   sample_annotation = sample_annotation
-)
+pg_data <- annotate_protein(data = data,
+                            sample_annotation = sample_annotation)
 ```
 
 ## Calculate Differential Expression Using a Moderated T-Test
@@ -202,9 +194,7 @@ measure the difference in average Log2 MaxLFQ and a p-value of that
 difference through use of a moderated student’s t-test.
 
 ``` r
-t_test_data <- perform_t_test(
-   pg_data = pg_data
-)
+t_test_data <- perform_t_test(pg_data = pg_data)
 ```
 
 ## Create Outputs
@@ -245,19 +235,19 @@ QC-purposes and to compare samples within one experiment.
 
 ``` r
 make_qc_plots(pep_data = pep_data,
-             pg_data = pg_data,
-             filename = 'diannr_QC_plots.pdf',
-             peak_shape = T,
-             charge_state = T,
-             cv = T,
-             precursor_coverage = T,
-             peptide_coverage = T,
-             protein_coverage = T,
-             precursor_completeness = T,
-             peptide_completeness = T,
-             protein_completeness = T,
-             precursor_intensity = T,
-             protein_intensity = T)
+              pg_data = pg_data,
+              filename = 'diannr_QC_plots.pdf',
+              peak_shape = T,
+              charge_state = T,
+              cv = T,
+              precursor_coverage = T,
+              peptide_coverage = T,
+              protein_coverage = T,
+              precursor_completeness = T,
+              peptide_completeness = T,
+              protein_completeness = T,
+              precursor_intensity = T,
+              protein_intensity = T)
 ```
 
 The plots generated are as follows:
@@ -310,8 +300,7 @@ make_customer_plots(pep_data = pep_data,
                     protein_intensity = T,
                     volcano = T,
                     fold_change_cutoff = 1,
-                    p_value_cutoff = 0.05
-                    )
+                    p_value_cutoff = 0.05)
 ```
 
 The plots generated are as follows:
